@@ -7,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
 
-        Callable<Integer> myCallable1 = new MyCallable("Поток 1");
-        Callable<Integer> myCallable2 = new MyCallable("Поток 2");
-        Callable<Integer> myCallable3 = new MyCallable("Поток 3");
-        Callable<Integer> myCallable4 = new MyCallable("Поток 4");
+        Callable<Integer> myCallable1 = new MyCallable("Task 1");
+        Callable<Integer> myCallable2 = new MyCallable("Task 2");
+        Callable<Integer> myCallable3 = new MyCallable("Task 3");
+        Callable<Integer> myCallable4 = new MyCallable("Task 4");
 
         ExecutorService threadPool = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
@@ -28,11 +28,9 @@ public class Main {
         }
         System.out.println( "Quantity of recieved messages is = " + countMessganges);
 
-
         Integer futuresForInvokeAny = threadPool.invokeAny(tasks);
         System.out.println("For \"InvokeAny\" we've got only " + futuresForInvokeAny);
 
         threadPool.shutdown();
     }
-
 }
